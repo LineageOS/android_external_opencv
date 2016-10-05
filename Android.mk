@@ -1,7 +1,10 @@
 LOCAL_PATH:= $(call my-dir)
 
+# b/31559947, Some files caused clang-analyzer-* checks to segmentation fault.
+common_local_tidy_checks := -clang-analyzer-*
 include $(CLEAR_VARS)
 
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 LOCAL_MODULE := libcxcore
 LOCAL_MODULE_TAGS := optional
 
@@ -65,6 +68,8 @@ LOCAL_CFLAGS += -Wno-sizeof-pointer-memaccess \
        -Wno-deprecated-register \
        -Wno-sign-compare \
        -Wno-parentheses-equality
+
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 
 LOCAL_SRC_FILES := \
         cv/src/cvaccum.cpp \
@@ -138,6 +143,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 LOCAL_MODULE    := libcvaux
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := \
@@ -208,6 +214,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 LOCAL_MODULE    := libcvml
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := \
@@ -241,6 +248,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 LOCAL_MODULE    := libcvhighgui
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := \
@@ -282,6 +290,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
+LOCAL_TIDY_CHECKS := $(common_local_tidy_checks)
 LOCAL_MODULE    := libopencv
 LOCAL_MODULE_TAGS := optional
 
