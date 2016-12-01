@@ -469,7 +469,7 @@ icvCreateGLCMDescriptors_AllowDoubleNest( CvGLCM* destGLCM, int matrixIndex )
             descriptors[ CV_GLCMDESC_ENERGY ] += entryValue*entryValue;
         }
 
-        if( marginalProbability>0 )
+        if( marginalProbability )
             marginalProbabilityEntropy += marginalProbability[ actualSideLoop1 ]*log(marginalProbability[ actualSideLoop1 ]);
     }
 
